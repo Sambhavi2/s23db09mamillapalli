@@ -9,7 +9,9 @@ var usersRouter = require('./routes/users');
 var icecreamRouter = require('./routes/icecream');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
-var Icecreame = require("./models/icecream");
+var Icecream = require("./models/icecream");
+var resourceRouter = require('./routes/resource');
+
 
 var app = express();
 
@@ -41,15 +43,30 @@ console.log("Connection to DB succeeded")});
 // We can seed the collection if needed on server start
 async function recreateDB(){
 // Delete everything
-await Icecreame.deleteMany();
+await Icecream.deleteMany();
 let instance1 = new
-Icecreame({flavour:"chocolate", size:'large', price:4});
+Icecream({flavour:"chocolate", size:'large', price:4});
 instance1.save().then(doc=>{
 console.log("First object saved")}
 ).catch(err=>{
 console.error(err)
 });
+let instance2 = new
+Icecream({flavour:"vanilla", size:'small', price:2});
+instance2.save().then(doc=>{
+console.log("Second object saved")}
+).catch(err=>{
+console.error(err)
+});
+let instance3 = new
+Icecream({flavour:"strawberry", size:'medium', price:3});
+instance3.save().then(doc=>{
+console.log("Third object saved")}
+).catch(err=>{
+console.error(err)
+});
 }
+
 let reseed = true;
 if (reseed) {recreateDB();}
 
@@ -59,6 +76,7 @@ app.use('/users', usersRouter);
 app.use('/icecream', icecreamRouter);
 app.use('/board', boardRouter);
 app.use('/choose', chooseRouter);
+app.use('/resource', resourceRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
