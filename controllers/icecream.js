@@ -1,4 +1,6 @@
+var Icecream = require('../models/icecream');
 // List of all icecreams
+// List of all icecream
 exports.icecream_list = async function(req, res) {
     try{
     theicecream = await Icecream.find();
@@ -10,11 +12,9 @@ exports.icecream_list = async function(req, res) {
     }
     };
     
-var Icecream = require('../models/icecream');
-// List of all icecreams
-exports.icecream_list = function(req, res) {
+/*exports.icecream_list = function(req, res) {
 res.send('NOT IMPLEMENTED: icecream list');
-};
+};*/
 // for a specific icecream.
 exports.icecream_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: icecream detail: ' + req.params.id);
