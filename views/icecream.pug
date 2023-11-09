@@ -1,0 +1,18 @@
+extends layout
+
+block content
+ h1= title
+  -let results=[{flavour:"Vanilla",size:"Small",price:2.50},{flavour:"Chocolate",size:"Medium",price:3.00},{flavour:"Strawberry",size:"Large",price:3.50}]
+    
+    div(class="container-fluid")
+    div(class="row")
+        each item,index in results
+             div(class="col-sm-2" onclick=`buy(${index})`)
+                p flavour:  #{item.flavour} 
+                p size: #{item.size}
+                p price: #{item.price}
+    script.
+      function buy(index)
+      {
+        alert(`You purchased item ${index+1}.`)
+      }

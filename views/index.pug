@@ -2,4 +2,14 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to my_page this is my index.pug and this is my local host Express
+  button(type="button" class="btn btn-secondary"  onClick="goFaster()") Press Me
+  div(id="faster") Increase the speed
+   script. 
+    let mph = 20;
+    let change = 1;
+    function goFaster(){
+      mph+=change;
+      change+=1;
+      document.getElementById('faster').innerHTML=`MPH ${mph} with Change ${change}.`;
+    }
