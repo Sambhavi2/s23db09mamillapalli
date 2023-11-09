@@ -2,11 +2,11 @@ extends layout
 
 block content
  h1= title
-  -let results=[{flavour:"Vanilla",size:"Small",price:2.50},{flavour:"Chocolate",size:"Medium",price:3.00},{flavour:"Strawberry",size:"Large",price:3.50}]
-    
+  -let items = results
+   
     div(class="container-fluid")
     div(class="row")
-        each item,index in results
+        each item,index in items
              div(class="col-sm-2" onclick=`buy(${index})`)
                 p flavour:  #{item.flavour} 
                 p size: #{item.size}

@@ -1,10 +1,22 @@
 var Icecream = require('../models/icecream');
-// List of all icecreams
+// List of all icecream
 // List of all icecream
 exports.icecream_list = async function(req, res) {
     try{
     theicecream = await Icecream.find();
     res.send(theicecream);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+  // VIEWS
+// Handle a show all view
+exports.icecream_view_all_Page = async function(req, res) {
+    try{
+    theicecream = await Icecream.find();
+    res.render('icecream', { title: 'icecream Search Results', results: theicecream });
     }
     catch(err){
     res.status(500);
