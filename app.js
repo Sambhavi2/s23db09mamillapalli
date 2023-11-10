@@ -26,8 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('dotenv').config();
-const connectionString =
-process.env.MONGO_CON
+const connectionString ='mongodb+srv://durgasambhavi25:rupa123@cluster0.r4n6mki.mongodb.net/?retryWrites=true&w=majority'
 mongoose = require('mongoose');
 mongoose.connect(connectionString,
 {useNewUrlParser: true,
