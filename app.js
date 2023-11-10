@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('dotenv').config();
 const connectionString =
-process.env.MONGO_CON,
+process.env.MONGO_CON
 mongoose = require('mongoose');
 mongoose.connect(connectionString,
 {useNewUrlParser: true,
