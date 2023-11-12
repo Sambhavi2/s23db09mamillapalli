@@ -116,6 +116,20 @@ res.status(500)
 res.send(`{'error': '${err}'}`);
 }
 };
+// Handle building the view for creating a icecream.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.icecream_create_Page = function(req, res) {
+  console.log("create view")
+  try{
+  res.render('icecreamcreate', { title: 'icecream Create'});
+  }
+  catch(err){
+  res.status(500)
+  res.send(`{'error': '${err}'}`);
+  }
+  };
+  
   
 // Handle icecream update form on PUT.
 /*exports.icecream_update_put = function(req, res) {
