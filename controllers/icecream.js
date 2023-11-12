@@ -69,9 +69,9 @@ res.send('NOT IMPLEMENTED: icecream detail: ' + req.params.id);
 res.send('NOT IMPLEMENTED: icecream create POST');
 };*/
 // Handle icecream delete form on DELETE.
-exports.icecream_delete = function(req, res) {
+/*exports.icecream_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: icecream delete DELETE ' + req.params.id);
-};
+};*/
 exports.icecream_update_put = async function(req, res) {
   console.log(`update on id ${req.params.id} with body
   ${JSON.stringify(req.body)}`)
@@ -91,6 +91,31 @@ exports.icecream_update_put = async function(req, res) {
   failed`);
   }
   };
+//Handle icecream delete on DELETE.
+exports.icecream_delete = async function(req, res) {
+console.log("delete " + req.params.id)
+try {
+result = await Icecream.findByIdAndDelete( req.params.id)
+console.log("Removed " + result)
+res.send(result)
+} catch (err) {
+res.status(500)
+res.send(`{"error": Error deleting ${err}}`);
+}
+};
+// Handle a show one view with id specified by query
+exports.icecream_view_one_Page = async function(req, res) {
+console.log("single view for id " + req.query.id)
+try{
+result = await Icecream.findById( req.query.id)
+res.render('icecreamdetail',
+{ title: 'icecream Detail', toShow: result });
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};
   
 // Handle icecream update form on PUT.
 /*exports.icecream_update_put = function(req, res) {
