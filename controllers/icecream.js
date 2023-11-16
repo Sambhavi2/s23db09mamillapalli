@@ -78,10 +78,10 @@ exports.icecream_update_put = async function(req, res) {
   try {
   let toUpdate = await Icecream.findById( req.params.id)
   // Do updates of properties
-  if(req.body.icecream_type)
-  toUpdate.icecream_type = req.body.icecream_type;
-  if(req.body.cost) toUpdate.cost = req.body.cost;
+  if(req.body.flavour)
+  toUpdate.flavour = req.body.flavour;
   if(req.body.size) toUpdate.size = req.body.size;
+  if(req.body.price) toUpdate.price = req.body.price;
   let result = await toUpdate.save();
   console.log("Sucess " + result)
   res.send(result)

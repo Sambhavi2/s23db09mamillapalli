@@ -3,14 +3,14 @@ block content
  h1= title
  form(id='icecreamForm', action="/resource/icecream", method="POST")
   div.form-group
-    label.icecreamAttr(for='flavour') icecream Flavour
+    label.icecreamAttr(for='flavour') icecream flavour
     input#flavour(type='String', name='flavour')
   div.form-group
-    label.icecreamAttr(for='size') icecream Size
+    label.icecreamAttr(for='size') icecream size
     input#size(type='String', name='size')
   div.form-group
     label.icecreamAttr(for='price') icecream Price
-    input#price(type='number', name='price',min=5,max=1000)
+    input#price(type='number', name='price',min=0,max=1000)
   input(type="submit")
  script.
   document.forms['icecreamForm'].addEventListener('submit', (event) => {
