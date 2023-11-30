@@ -21,7 +21,7 @@ block content
      input#size(type='String', name='size', value= size )
    div.form-group
      label.icecreamAttr(for='price') icecream price
-     input#price(type='number', name='price', value= price,min=0,max=1000)
+     input#price(type='number', name='price', value= price,min=2,max=10)
    input(type="submit")
   script.
    document.forms['icecreamForm'].addEventListener('submit', (event) => {

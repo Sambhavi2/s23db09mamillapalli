@@ -10,7 +10,7 @@ block content
     input#size(type='String', name='size')
   div.form-group
     label.icecreamAttr(for='price') icecream Price
-    input#price(type='number', name='price',min=0,max=1000)
+    input#price(type='number', name='price',min=2,max=10)
   input(type="submit")
  script.
   document.forms['icecreamForm'].addEventListener('submit', (event) => {
